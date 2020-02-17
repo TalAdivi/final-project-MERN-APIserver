@@ -16,6 +16,10 @@ const taskSchema = new Schema({
         type: Number,
         required: true
     },
+    userName: {
+        type: String,
+        required: true
+    },    
     companyID: {
         type: String,
         required: true
@@ -48,8 +52,11 @@ const taskSchema = new Schema({
 
 // create task by sending parameters in the body request, status && date send && taskID create by the server
 taskSchema.statics.insertNewTask = async function (body) {
+    console.log("body\n",body.userID);
+    
     let taskObj = new this({
         userID: body.userID,
+        userName:body.userName,
         companyID: body.companyID,
         title: body.title,
         selectedSubject: body.selectedSubject,

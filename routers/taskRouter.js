@@ -12,7 +12,7 @@ router.get('/company/:companyID', (req, res) => {
     controller.getTasksCompany(req, res);
 });
 
-router.post('/addTask', (req, res) => {
+router.post('/add', (req, res) => {
     controller.createNewTask(req, res);
 });
 
