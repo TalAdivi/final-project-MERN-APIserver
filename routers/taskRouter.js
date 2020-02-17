@@ -16,7 +16,7 @@ router.post('/addTask', (req, res) => {
     controller.createNewTask(req, res);
 });
 
-router.put('/update/:taskID ', (req, res) => {
+router.put('/update/:taskID', (req, res) => {
     controller.updateStatusTask(req, res);
 });
 
