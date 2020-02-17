@@ -1,4 +1,4 @@
-const model = require('../dal/userSchema');
+const model = require('../models/userSchema');
 
 // check if user exists in our system by google id_token, if yes send in the data the authorization of the user
 async function checkUser(req, res) {

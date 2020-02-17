@@ -12,14 +12,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-
-// app.use(express.static(path.join(__dirname,"../final-project-client-build/build") ));
-// app.get("*",(req,res) => {
-//   app.use((req,res) => res.sendFile(path.join(__dirname,"../final-project-client-build/build/index.html")));
-// });
-
-
-
 app.use(
  (req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
@@ -29,10 +21,19 @@ app.use(
    next();
  });
 
+
 // routes for all api services
 app.use('/Help4U/task', taskApi);
-app.use('/Help4U/subject', subjectApi);
-app.use('/Help4U/company', companyApi);
+app.use('/Help4U/subjects', subjectApi);
+app.use('/Help4U/companies', companyApi);
 app.use('/Help4U/user', userApi);
+app.get('*', (req, res) => {
+  res.status(404).json({
+      status:404,
+      message: "Wrong routeeeeee",
+      action: "Unknown",
+      data: null
+  })
+});
 
 module.exports = app;
