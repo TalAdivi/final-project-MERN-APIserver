@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 const path = require('path');
+const cors = require('cors');
 
 const taskApi = require('./routers/taskRouter');
 const subjectApi = require('./routers/subjectRouter');
@@ -25,6 +26,7 @@ app.use(
 
 
 // routes for all api services
+app.use(cors())
 app.use('/Help4U/task', taskApi);
 app.use('/Help4U/subjects', subjectApi);
 app.use('/Help4U/companies', companyApi);

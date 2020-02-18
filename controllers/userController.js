@@ -3,7 +3,11 @@ const model = require('../models/userSchema');
 // check if user exists in our system by google id_token, if yes send in the data the authorization of the user
 async function checkUser(req, res) {
     try {
-        console.log('req.body.google_id\n',req.body);
+        console.log('req.body\n',req.body.google_id);
+        // const jsonRes = JSON.parse(req.body);
+        // console.log('jsonRes\n',jsonRes.);
+        
+
         
         const data = await model.findUser(req.body.google_id);
         if (data.length == 0) {
